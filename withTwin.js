@@ -18,37 +18,65 @@ module.exports = function withTwin(nextConfig) {
       /** 모듈 규칙을 추가합니다. */
       config.module = config.module || {};
       config.module.rules = config.module.rules || [];
+
       config.module.rules.push({
         test: /\.(tsx|ts|js)$/ /** .tsx, .ts, .js 확장자를 가진 파일들을 대상으로 */,
         include:
           includedDirs /** includedDirs에 정의된 폴더들에서만 적용합니다. */,
-        use: [
-          options.defaultLoaders.babel /** 기본 Babel 로더 사용 */,
-          {
-            loader: 'babel-loader' /** babel-loader 사용 */,
-            options: {
-              sourceMaps: dev /** 개발 모드에서 소스맵 생성 */,
-              presets: [
-                [
-                  '@babel/preset-react',
-                  { runtime: 'automatic', importSource: '@emotion/react' },
-                ],
-              ],
-              plugins: [
-                require.resolve(
-                  'babel-plugin-macros'
-                ) /** babel-plugin-macros 활성화 */,
-                require.resolve(
-                  '@emotion/babel-plugin'
-                ) /** @emotion/babel-plugin 활성화 */,
-                [
-                  require.resolve('@babel/plugin-syntax-typescript'),
-                  { isTSX: true },
-                ],
-              ],
-            },
-          },
-        ],
+        use: options?.defaultLoaders?.babel
+          ? [
+              options?.defaultLoaders?.babel,
+              {
+                loader: 'babel-loader' /** babel-loader 사용 */,
+                options: {
+                  sourceMaps: dev /** 개발 모드에서 소스맵 생성 */,
+                  presets: [
+                    [
+                      '@babel/preset-react',
+                      { runtime: 'automatic', importSource: '@emotion/react' },
+                    ],
+                  ],
+                  plugins: [
+                    require.resolve(
+                      'babel-plugin-macros'
+                    ) /** babel-plugin-macros 활성화 */,
+                    require.resolve(
+                      '@emotion/babel-plugin'
+                    ) /** @emotion/babel-plugin 활성화 */,
+                    [
+                      require.resolve('@babel/plugin-syntax-typescript'),
+                      { isTSX: true },
+                    ],
+                  ],
+                },
+              },
+            ]
+          : [
+              {
+                loader: 'babel-loader' /** babel-loader 사용 */,
+                options: {
+                  sourceMaps: dev /** 개발 모드에서 소스맵 생성 */,
+                  presets: [
+                    [
+                      '@babel/preset-react',
+                      { runtime: 'automatic', importSource: '@emotion/react' },
+                    ],
+                  ],
+                  plugins: [
+                    require.resolve(
+                      'babel-plugin-macros'
+                    ) /** babel-plugin-macros 활성화 */,
+                    require.resolve(
+                      '@emotion/babel-plugin'
+                    ) /** @emotion/babel-plugin 활성화 */,
+                    [
+                      require.resolve('@babel/plugin-syntax-typescript'),
+                      { isTSX: true },
+                    ],
+                  ],
+                },
+              },
+            ],
       });
 
       if (!isServer) {
