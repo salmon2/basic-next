@@ -38,10 +38,10 @@ module.exports = function withTwin(nextConfig) {
                   ],
                   plugins: [
                     require.resolve(
-                      'babel-plugin-macros'
+                      'babel-plugin-macros',
                     ) /** babel-plugin-macros 활성화 */,
                     require.resolve(
-                      '@emotion/babel-plugin'
+                      '@emotion/babel-plugin',
                     ) /** @emotion/babel-plugin 활성화 */,
                     [
                       require.resolve('@babel/plugin-syntax-typescript'),
@@ -64,10 +64,10 @@ module.exports = function withTwin(nextConfig) {
                   ],
                   plugins: [
                     require.resolve(
-                      'babel-plugin-macros'
+                      'babel-plugin-macros',
                     ) /** babel-plugin-macros 활성화 */,
                     require.resolve(
-                      '@emotion/babel-plugin'
+                      '@emotion/babel-plugin',
                     ) /** @emotion/babel-plugin 활성화 */,
                     [
                       require.resolve('@babel/plugin-syntax-typescript'),
