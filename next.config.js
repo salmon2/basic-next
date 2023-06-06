@@ -1,6 +1,15 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+// next.config.js
+const withTwin = require('./withTwin.js');
 
-module.exports = nextConfig
+module.exports = (phase) => {
+  return withTwin({
+    reactStrictMode: false,
+    swcMinify: true,
+    images: {
+      loaderFile: './image-loader.js',
+    },
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
+  });
+};
