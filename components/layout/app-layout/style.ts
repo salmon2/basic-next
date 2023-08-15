@@ -7,14 +7,12 @@ export const LayoutContainer = styled.div`
   min-width: ${theme`variables.min-width`};
   max-width: ${theme`variables.max-width`};
   margin: 0 auto;
-  background-color: ${theme`colors.sub_FFFFFF`};
+  background-color: ${theme`colors.bg_EEF2FD`};
 `;
 
 export const PageContainer = styled.div`
-  ${({ isFullWidth }: { isFullWidth: boolean }) =>
-    css`
-      width: 100%;
-      min-height: 100vh;
-      padding-left: ${isFullWidth ? 0 : theme`variables.side-navigation-width`};
-    `}
+  width: 100%;
+  min-height: 100vh;
+
+  background-color: ${theme`colors.bg_F5F5F5`};
 `;

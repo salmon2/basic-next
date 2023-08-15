@@ -1,15 +1,5 @@
-import Button from '@components/common/button';
+import PageArea from '@components/layout/page-area';
 
 export default function Home() {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-      <Button />
-    </div>
-  );
+  return <PageArea>hello</PageArea>;
 }

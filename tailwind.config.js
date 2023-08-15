@@ -1,5 +1,6 @@
 const colors = require('./tailwind-theme/colors');
 const variables = require('./tailwind-theme/variables');
+const containerSize = require('./tailwind-theme/containerSize');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -10,6 +11,7 @@ module.exports = {
   theme: {
     colors,
     variables,
+    containerSize,
     // extend: {
     //   backgroundImage: {
     //     'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
